@@ -1,0 +1,106 @@
+% author: keliani.
+% testing: conway, attempt 2.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <time.h>
+
+int fc;
+int inicio(int fc); // Alusión a un plano (x, y) basado en filas y columnas (ya que es una matriz cuadrada)
+int inicial(); // Imprime estado inicial.
+void nueva(); // Matriz que imprime el nuevo estado.
+
+// Inicialización de variables.
+
+int main()
+{
+    int fc; // Numero de filas y columnas.
+    int derecha, izquierda, sup, inf; // Variables para la evaluación de la posición de cada "x".
+    int vidas; // Asignacion de las vidas.
+    int prim; // Variable que será random.
+    int vivos; vivos = 0; // Para evaluar el estado de cada vida.
+    int vida; // Simbolo de cada vida.
+    int muerte; // Simbolo de cada muerte.
+    int ev; ev = 0; // Variable Evaluación de la matriz.
+    int imp; imp = 0; // Variable Impresión de la matriz.
+    int inicio[fc][fc];
+    for(ev = 0; ev <= fc; ev++){
+           for(imp = 0; imp <= fc; imp++){
+                   inicio[ev][imp] = 1;
+                                         }
+                               }
+
+
+// Presentación.
+
+    printf("JUEGO DE LA VIDA [CONWAY].\n"); printf("\n");
+    printf("Indique la cantidad de filas & columnas.\n");
+    printf("FILAS Y COLUMNAS: Minimo: 5. Maximo: 100: ");
+    scanf("%d", &fc);
+    printf("\nIndique la cantidad de vidas para iniciar.\n");
+    printf("Máximo de vidas: 1/2(Filas x Columnas): ");
+    scanf("%d", &vidas);
+    printf("\n");
+    int inicial();
+    for(ev = 1; ev <= 100; ev++){
+           int inicial();
+           printf("\n\n");
+           while(ev <= 100){
+                    void nueva();
+                    getchar();
+                              }
+           system("PAUSE");
+                                 }
+    
+    
+// Primera matriz.
+
+int inicial(){
+     int ev, imp;
+     int fc;
+     for(ev = 0; ev <= fc; ev++){
+            for(imp = 0; imp <= fc; imp++){
+                    if(inicio[ev][imp] == 0)
+                    printf("x");
+                    else printf(" ");
+                                          }
+                                 }
+     printf("\n\n\n");
+}
+
+
+// Matrices nuevas.
+
+void nueva(){
+     int ev, imp, ev2, imp2, contador;
+     int copia[fc][fc];
+     for(ev = 0; ev <= fc+1; ev++){
+            for(imp = 0; imp <= fc+1; imp++){
+                    copia[ev][imp] = inicio[ev][imp];
+                                             }
+                                  }
+     for(ev = 1; ev <= fc; ev++){
+            for(imp = 1; imp <= fc; imp++){
+                    contador = -1;// Contador esta en -1 pensando en que se contara a si mismo una ves si esta viva
+                    for(ev2 = ev-1; ev2 <= ev+1; ev2++){
+                            for(imp2 = imp-1; imp <= imp+1; imp2++){
+                                     if(inicio[ev2][imp2] == 0)// Reviso si hay celulas vivas alrededor
+                                     contador++;
+                                                                    }
+                                                        }
+                    if((contador < 2 || contador == 4) && inicio[ev][imp] == 0)
+                    copia[ev][imp] = 1;// Si hay 0,1 o 4 celulas vivas alrededor muere
+                    else if(contador == 2 && inicio[ev][imp] == 1)
+                    copia[ev][imp] = 0;// Si hay 3 celulas vivas alrededor resucita
+                                          }
+                                }
+     for(ev = 0; ev <= fc+1; ev++){
+            for(imp = 0; imp <= fc+1; imp++){
+                    inicio[ev][imp] = copia[ev][imp];// Guardo los cambios en vida
+                    printf("%c\t", inicio[ev][imp]);
+                                            }
+                                  }
+}
+system("pause>nul");
+}
