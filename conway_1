@@ -1,0 +1,46 @@
+% author: keliani.
+% testing: conway, attempt 1.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <time.h>
+
+char matriz(int n);
+char nueva(int n);
+
+main()
+{
+    int n; // Numero de filas y columnas.
+    int derecha, izquierda, sup, inf; // Variables para la evaluación de la posición de cada "o".
+    int vidas; // Numero de las vidas.
+    int prim; // Variable que será random.
+    int vivos; vivos = 0;
+    char vie; vie = 'o'; // Simbolo de cada vida.
+    char morte; morte = ' '; // Simbolo de cada muerte.
+    char nee; nee = 'x'; // Simbolo de cada recien nacido.
+    int ev, imp; // Variables para la evaluación e impresión de la 1era matriz.
+    ev = 0; imp = 0;
+    printf("JUEGO DE LA VIDA (CONWAY).\n"); printf("\n");
+    printf("Indique la cantidad de filas & columnas: ");
+    scanf("%d", &n);
+    printf("\n");
+    printf("Indique la cantidad de vidas para iniciar: ");
+    scanf("%d", &vidas);
+    printf("\n");
+    char matriz[n][n]; // Primera matriz.
+    char nueva[n][n]; // Matrices siguientes.
+    while(n >= 10){ 
+            for(ev = 0; ev < n; ev++){ // Ciclo de Impresión.
+                   for(imp = 0; imp < n; imp++){ // Ciclo de evaluación.
+                   matriz[ev][imp] = 'o';
+                   printf("%c\t", matriz[ev][imp]);
+                   }
+                   printf("\n");
+                   }
+    printf("\n");
+    system("PAUSE");  printf("\n");
+    }
+  if(n < 10) printf("Matriz muy pequena.\n");
+  system("pause>nul");
+}
